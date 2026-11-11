@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Stores</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; }
+    input { padding: .4rem; margin-right: .3rem; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1.5rem; }
+    th, td { border-bottom: 1px solid #ddd; padding: .4rem; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Add a Store</h1>
+  <form method="post">
+    <input name="name" placeholder="Store name" required>
+    <input name="address" placeholder="Address">
+    <input name="city" placeholder="City">
+    <button type="submit">Add</button>
+  </form>
+  <table>
+    <tr><th>ID</th><th>Name</th><th>Address</th><th>City</th><th>Added</th></tr>
+    {% for s in stores %}
+    <tr><td>{{ s[0] }}</td><td>{{ s[1] }}</td><td>{{ s[2] }}</td><td>{{ s[3] }}</td><td>{{ s[4].strftime('%Y-%m-%d %H:%M') }}</td></tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
